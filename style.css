@@ -1,0 +1,29 @@
+/* ul{ */
+    /* display: flex; */
+    /* list-style: none; */
+/* }        */
+/* li{ */
+   
+/* } */
+/* .div{ */
+    /* height: 100px; */
+    /* width: 100px; */
+    /* background-color: black; */
+    /* border-radius: 50%; */
+    /* position: absolute; */
+    /* left: 5; */
+    /* animation-name: container; */
+    /* animation-duration: 4s; */
+    /* animation-iteration-count: infinite; */
+/* } */
+/* @keyframes container{ */
+    /* 0%{ */
+        /* left: 0px; */
+    /* } */
+    /* 50%{ */
+        /* left: 1000px; */
+    /* } */
+    /* 100%{ */
+        /* right: 1000px; */
+    /* } */
+/* } */

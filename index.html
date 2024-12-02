@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #qrcode {
+            margin: 20px auto;
+        }
+        #ar-scene {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Сканируйте QR-код для запуска дополненной реальности</h1>
+<div id="qrcode"></div>
+
+<div id="ar-scene" hidden>
+    <a-scene embedded arjs>
+        <!-- Маркер для отображения изображения -->
+        <a-marker preset="hiro">
+            <a-image 
+                src="https://example.com/your-image.jpg" 
+                position="0 0 0" 
+                rotation="0 0 0" 
+                scale="1 1 1">
+            </a-image>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</div>
+
+<script>
+    // URL текущей страницы
+    const currentURL = 'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp';
+
+    // Генерация QR-кода
+    new QRCode(document.getElementById("qrcode"), {
+        text: currentURL, // Ссылка на эту же страницу
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Показываем AR-сцену, если открыта страница напрямую
+    document.getElementById('ar-scene').hidden = false;
+</script>
+
+</body>
+</html>
